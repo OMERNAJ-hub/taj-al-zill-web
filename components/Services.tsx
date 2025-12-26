@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react';
-import { 
-  ShieldCheck, 
-  Home, 
-  Car, 
-  Warehouse, 
-  Tent, 
-  Layers, 
+import {
+  ShieldCheck,
+  Home,
+  Car,
+  Warehouse,
+  Tent,
+  Layers,
   ArrowLeft,
   ArrowRight,
   X,
@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Language, translations } from '../lib/translations';
+import { getProjectImage } from '../lib/projectImages';
 
 const services = [
   {
@@ -23,7 +24,7 @@ const services = [
     desc_ar: "تركيب مظلات بولي إيثيلين و PVC عالي الكثافة، مقاومة للحرارة والأشعة فوق البنفسجية في الرياض وجدة.",
     desc_en: "Premium Polyethylene and high-density PVC shades, heat and UV resistant across Riyadh and Jeddah.",
     icon: Car,
-    image: "https://images.unsplash.com/photo-1590674899484-13da0d1b58f5?auto=format&fit=crop&w=1200&q=80",
+    image: getProjectImage(0),
     specs: ["مقاومة للحرارة 95%", "ضمان 10 سنوات", "متعدد الألوان"]
   },
   {
@@ -33,7 +34,7 @@ const services = [
     desc_ar: "حلول منزلية تضمن الخصوصية التامة مع تصاميم قص ليزر عصرية وسواتر خشبية معالجة تضفي جمالاً على منزلك.",
     desc_en: "Privacy solutions with modern laser-cut designs and treated wood that adds elegance to your home.",
     icon: ShieldCheck,
-    image: "https://images.unsplash.com/photo-1615873968403-89e068628265?auto=format&fit=crop&w=1200&q=80",
+    image: getProjectImage(1),
     specs: ["حديد قص ليزر 4 ملم", "خشب بلاستيكي معالج", "دهانات نارية"]
   },
   {
@@ -43,7 +44,7 @@ const services = [
     desc_ar: "تصميم وتنفيذ برجولات خشبية وحديدية بلمسات ديكورية ساحرة تجعل جلستك الخارجية واحة من الاسترخاء.",
     desc_en: "Custom wood and steel pergolas with decorative touches that turn your outdoors into an oasis.",
     icon: Home,
-    image: "https://images.unsplash.com/photo-1598928636135-d146006ff4be?auto=format&fit=crop&w=1200&q=80",
+    image: getProjectImage(2),
     specs: ["إنارة LED مدمجة", "أرضيات عشب صناعي", "تغطية لكسان شفافة"]
   },
   {
@@ -53,7 +54,7 @@ const services = [
     desc_ar: "تغطية أسطح وملاحق بأجود أنواع القرميد الوطني والايطالي، عزل مائي وحراري كامل بألوان متعددة.",
     desc_en: "Roofing with premium national and Italian tiles, full water and heat insulation in various colors.",
     icon: Layers,
-    image: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?auto=format&fit=crop&w=1200&q=80",
+    image: getProjectImage(3),
     specs: ["عزل مائي 5 طبقات", "خشب سويدي أصلي", "ألوان فخارة طبيعية"]
   },
   {
@@ -63,7 +64,7 @@ const services = [
     desc_ar: "تصميم بيوت الشعر والخيام التقليدية بروح عصرية وفخامة ملكية تناسب المجالس الكبيرة والمخيمات الفاخرة.",
     desc_en: "Traditional tents and Majlis designed with a modern soul and royal luxury for large gatherings.",
     icon: Tent,
-    image: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?auto=format&fit=crop&w=1200&q=80",
+    image: getProjectImage(4),
     specs: ["أقمشة سدو فاخرة", "تكييف مخفي", "ديكورات جبسية تراثية"]
   },
   {
@@ -73,7 +74,7 @@ const services = [
     desc_ar: "بناء مستودعات وهناجر صناعية متينة وفق أعلى المعايير الهندسية لضمان المساحة والأمان لمشروعك.",
     desc_en: "Sturdy industrial hangars and warehouses built to highest engineering standards for your project safety.",
     icon: Warehouse,
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+    image: getProjectImage(5),
     specs: ["جسور حديد سابك", "ألواح ساندوتش بانل", "أنظمة إطفاء حريق"]
   }
 ];
@@ -123,21 +124,21 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index, lang, onOpen 
           </h3>
         </div>
 
-        <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 opacity-0 group-hover:opacity-100 scale-110 group-hover:scale-100"
+        <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 opacity-50 group-hover:opacity-100 scale-110 group-hover:scale-100"
           style={{ backgroundImage: `url(${service.image})` }} />
         <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
 
         <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-           <h3 className="text-xl font-cairo font-black text-white mb-2">
-             {isAr ? service.title_ar : service.title_en}
-           </h3>
-           <p className="text-gray-300 text-sm mb-6 line-clamp-3">
-             {isAr ? service.desc_ar : service.desc_en}
-           </p>
-           <button className="flex items-center gap-3 text-gold-500 font-black text-xs uppercase tracking-widest">
-             {t.viewDetails}
-             {isAr ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
-           </button>
+          <h3 className="text-xl font-cairo font-black text-white mb-2">
+            {isAr ? service.title_ar : service.title_en}
+          </h3>
+          <p className="text-gray-300 text-sm mb-6 line-clamp-3">
+            {isAr ? service.desc_ar : service.desc_en}
+          </p>
+          <button className="flex items-center gap-3 text-gold-500 font-black text-xs uppercase tracking-widest">
+            {t.viewDetails}
+            {isAr ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
+          </button>
         </div>
       </motion.div>
     </motion.div>
@@ -171,17 +172,17 @@ const Services: React.FC<{ lang: Language }> = ({ lang }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {services.map((service, index) => (
-            <ServiceCard 
-              key={service.id} 
-              service={service} 
-              index={index} 
-              lang={lang} 
-              onOpen={setSelectedService} 
+            <ServiceCard
+              key={service.id}
+              service={service}
+              index={index}
+              lang={lang}
+              onOpen={setSelectedService}
             />
           ))}
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           className="mt-32 text-center p-12 md:p-24 rounded-[60px] bg-dark-800 border border-gold-500/10 max-w-5xl mx-auto relative overflow-hidden shadow-2xl"
@@ -193,8 +194,8 @@ const Services: React.FC<{ lang: Language }> = ({ lang }) => {
           <p className="text-gray-400 text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
             {isAr ? 'فريقنا متاح لمساعدتك في اختيار أنسب التصاميم والخامات لمساحتك بأعلى جودة وأقل تكلفة. نحن نحرص على تقديم حلول هندسية مبتكرة تضمن لك الديمومة والجمال.' : 'Our team is here to help you choose the best designs and materials for your space at the highest quality. We ensure providing innovative engineering solutions that guarantee durability and beauty.'}
           </p>
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             onClick={handleConsultationScroll}
             className="inline-flex items-center gap-4 bg-gold-500 hover:bg-white text-dark-900 px-14 py-6 rounded-full font-black text-xl transition-all shadow-xl hover:scale-105 active:scale-95"
           >
@@ -208,9 +209,9 @@ const Services: React.FC<{ lang: Language }> = ({ lang }) => {
       <AnimatePresence>
         {selectedService && (
           <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4">
-            <motion.div 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedService(null)}
               className="absolute inset-0 bg-dark-950/95 backdrop-blur-xl"
@@ -225,7 +226,7 @@ const Services: React.FC<{ lang: Language }> = ({ lang }) => {
                 <img src={selectedService.image} className="w-full h-full object-cover" alt={selectedService.title_ar} />
               </div>
               <div className="w-full md:w-1/2 p-10 flex flex-col justify-center relative">
-                <button 
+                <button
                   onClick={() => setSelectedService(null)}
                   className="absolute top-6 left-6 p-2 rounded-full bg-dark-900/50 text-gold-500 hover:bg-gold-500 hover:text-dark-900 transition-all z-20"
                 >
@@ -250,14 +251,14 @@ const Services: React.FC<{ lang: Language }> = ({ lang }) => {
                   ))}
                 </div>
                 <div className="flex flex-wrap gap-4">
-                  <a 
-                    href="https://wa.me/966503058109" 
+                  <a
+                    href="https://wa.me/966503058109"
                     target="_blank"
                     className="bg-gold-500 text-dark-950 px-8 py-4 rounded-full font-black hover:bg-white transition-all shadow-lg text-center flex-grow md:flex-grow-0"
                   >
                     {t.navInquiry}
                   </a>
-                  <button 
+                  <button
                     onClick={() => setSelectedService(null)}
                     className="border border-white/20 text-white px-8 py-4 rounded-full font-bold hover:border-gold-500 transition-all flex-grow md:flex-grow-0"
                   >
