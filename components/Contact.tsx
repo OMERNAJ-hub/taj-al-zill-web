@@ -36,7 +36,7 @@ const Contact: React.FC<ContactProps> = ({ lang }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              {t.contactTitle} <br/> <span className="text-gold-500">{t.contactSubTitle}</span>
+              {t.contactTitle} <br /> <span className="text-gold-500">{t.contactSubTitle}</span>
             </h2>
             <p className="text-gray-400 mb-10 text-lg">
               {t.contactDesc}
@@ -49,8 +49,8 @@ const Contact: React.FC<ContactProps> = ({ lang }) => {
                 </div>
                 <div>
                   <h4 className="text-white font-bold text-lg">{t.contactInfoTitle}</h4>
-                  <a href="tel:+966503058109" className="text-gray-400 hover:text-gold-500 transition-colors block">
-                    +966 50 305 8109
+                  <a href="tel:0531020403" className="text-gray-400 hover:text-gold-500 transition-colors block">
+                    053 102 0403
                   </a>
                 </div>
               </div>
@@ -67,12 +67,12 @@ const Contact: React.FC<ContactProps> = ({ lang }) => {
             </div>
 
             <div className="mt-10 flex gap-4">
-               <a href="#" className="w-12 h-12 rounded-full bg-dark-800 flex items-center justify-center hover:bg-gold-500 hover:text-dark-900 transition-colors border border-white/10">
-                 <Instagram className="w-6 h-6" />
-               </a>
-               <a href="#" className="w-12 h-12 rounded-full bg-dark-800 flex items-center justify-center hover:bg-gold-500 hover:text-dark-900 transition-colors border border-white/10">
-                 <Send className="w-5 h-5 -ml-1" />
-               </a>
+              <a href="#" className="w-12 h-12 rounded-full bg-dark-800 flex items-center justify-center hover:bg-gold-500 hover:text-dark-900 transition-colors border border-white/10">
+                <Instagram className="w-6 h-6" />
+              </a>
+              <a href="#" className="w-12 h-12 rounded-full bg-dark-800 flex items-center justify-center hover:bg-gold-500 hover:text-dark-900 transition-colors border border-white/10">
+                <Send className="w-5 h-5 -ml-1" />
+              </a>
             </div>
           </div>
 
@@ -82,14 +82,14 @@ const Contact: React.FC<ContactProps> = ({ lang }) => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-1">{t.formName}</label>
-                  <input type="text" id="name" required value={formData.name} onChange={handleChange} className="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder={t.formPlaceName}/>
+                  <input type="text" id="name" required value={formData.name} onChange={handleChange} className="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder={t.formPlaceName} />
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-400 mb-1">{t.formPhone}</label>
-                  <input type="tel" id="phone" required value={formData.phone} onChange={handleChange} className="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder={t.formPlacePhone}/>
+                  <input type="tel" id="phone" required value={formData.phone} onChange={handleChange} className="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder={t.formPlacePhone} />
                 </div>
               </div>
-              
+
               <div>
                 <label htmlFor="type" className="block text-sm font-medium text-gray-400 mb-1">{t.formType}</label>
                 <select id="type" value={formData.type} onChange={handleChange} className="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors">

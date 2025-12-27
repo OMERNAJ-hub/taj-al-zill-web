@@ -44,8 +44,8 @@ const Footer: React.FC<FooterProps> = ({ lang, onNavigate, currentPage }) => {
               {t.footerDesc}
             </p>
             <div className="flex gap-4">
-                <a href="#" className="hover:text-gold-500 transition-colors"><Instagram className="w-5 h-5" /></a>
-                <a href="#" className="hover:text-gold-500 transition-colors"><Send className="w-5 h-5" /></a>
+              <a href="#" className="hover:text-gold-500 transition-colors"><Instagram className="w-5 h-5" /></a>
+              <a href="#" className="hover:text-gold-500 transition-colors"><Send className="w-5 h-5" /></a>
             </div>
           </div>
 
@@ -53,8 +53,8 @@ const Footer: React.FC<FooterProps> = ({ lang, onNavigate, currentPage }) => {
             <h4 className="text-white font-bold mb-4">{lang === 'ar' ? 'روابط الوصول' : 'Quick Links'}</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a 
-                  href="#home" 
+                <a
+                  href="#home"
                   onClick={(e) => handleLinkClick(e, 'home', 'page')}
                   className="hover:text-gold-500 transition-colors cursor-pointer"
                 >
@@ -62,8 +62,8 @@ const Footer: React.FC<FooterProps> = ({ lang, onNavigate, currentPage }) => {
                 </a>
               </li>
               <li>
-                <a 
-                  href="#services" 
+                <a
+                  href="#services"
                   onClick={(e) => handleLinkClick(e, 'services', 'scroll')}
                   className="hover:text-gold-500 transition-colors cursor-pointer"
                 >
@@ -71,8 +71,8 @@ const Footer: React.FC<FooterProps> = ({ lang, onNavigate, currentPage }) => {
                 </a>
               </li>
               <li>
-                <a 
-                  href="#gallery" 
+                <a
+                  href="#gallery"
                   onClick={(e) => handleLinkClick(e, 'gallery', 'page')}
                   className="hover:text-gold-500 transition-colors cursor-pointer"
                 >
@@ -80,8 +80,8 @@ const Footer: React.FC<FooterProps> = ({ lang, onNavigate, currentPage }) => {
                 </a>
               </li>
               <li>
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   onClick={(e) => handleLinkClick(e, 'contact', 'scroll')}
                   className="hover:text-gold-500 transition-colors cursor-pointer"
                 >
@@ -95,17 +95,17 @@ const Footer: React.FC<FooterProps> = ({ lang, onNavigate, currentPage }) => {
             <h4 className="text-white font-bold mb-4">{lang === 'ar' ? 'خدمة العملاء' : 'Customer Support'}</h4>
             <ul className="space-y-2 text-sm">
               <li className="flex gap-2 items-center text-sm">
-                 <span className="text-gold-500">{lang === 'ar' ? 'الجوال:' : 'Phone:'}</span>
-                 <a href="tel:+966503058109" className="hover:text-white">+966 50 305 8109</a>
+                <span className="text-gold-500">{lang === 'ar' ? 'الجوال:' : 'Phone:'}</span>
+                <a href="tel:0531020403" className="hover:text-white">053 102 0403</a>
               </li>
               <li className="flex gap-2 items-center text-sm">
-                 <span className="text-gold-500">{lang === 'ar' ? 'العنوان:' : 'Address:'}</span>
-                 <span>{t.contactLocationDesc}</span>
+                <span className="text-gold-500">{lang === 'ar' ? 'العنوان:' : 'Address:'}</span>
+                <span>{t.contactLocationDesc}</span>
               </li>
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-800 pt-8 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} {t.tagline}. {t.rights}.</p>
         </div>

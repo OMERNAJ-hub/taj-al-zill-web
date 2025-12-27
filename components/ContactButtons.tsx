@@ -21,18 +21,18 @@ const ContactButtons: React.FC<ContactButtonsProps> = ({ lang }) => {
       >
         <MessageCircle className="w-7 h-7" />
         <span className="absolute right-full mr-4 bg-dark-800 text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-gold-900">
-            {t.whatsappTooltip}: 0503058109
+          {t.whatsappTooltip}: 0503058109
         </span>
       </a>
 
       {/* Call Button */}
       <a
-        href="tel:+966503058109"
+        href="tel:0531020403"
         className="group relative flex items-center justify-center w-14 h-14 bg-gold-500 text-dark-900 rounded-full shadow-lg transition-transform hover:scale-110 active:scale-95 animate-pulse-gold"
       >
         <Phone className="w-7 h-7" />
         <span className="absolute right-full mr-4 bg-dark-800 text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-gold-900">
-            {t.callTooltip}: 0503058109
+          {t.callTooltip}: 053 102 0403
         </span>
       </a>
     </div>

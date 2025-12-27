@@ -1,46 +1,49 @@
 import React from 'react';
 import { PortfolioItem } from '../types';
-import { getProjectImage } from '../lib/projectImages';
+import { getProjectImageByCategory } from '../lib/projectImages';
+
 
 // Real Unsplash images fitting the "Luxury Riyadh Event" theme
+// Real images from project categories
 const portfolioItems: PortfolioItem[] = [
   {
     id: 1,
-    imageUrl: getProjectImage(10),
-    title: "زفاف ملكي - الرياض",
-    category: "زفاف"
+    imageUrl: getProjectImageByCategory('cars', 1),
+    title: "مظلات مواقف سيارات",
+    category: "مظلات"
   },
   {
     id: 2,
-    imageUrl: getProjectImage(11),
-    title: "تجهيزات الطاولة",
-    category: "ضيافة"
+    imageUrl: getProjectImageByCategory('tents', 1),
+    title: "بيت شعر ملكي فاخر",
+    category: "خيام"
   },
   {
     id: 3,
-    imageUrl: getProjectImage(12),
-    title: "إضاءة القاعة",
-    category: "ديكور"
+    imageUrl: getProjectImageByCategory('pergola', 1),
+    title: "برجولة خشبية مودرن",
+    category: "برجولات"
   },
   {
     id: 4,
-    imageUrl: getProjectImage(13),
-    title: "مسرح المؤتمرات",
-    category: "فعاليات"
+    imageUrl: getProjectImageByCategory('screens', 1),
+    title: "سواتر قص ليزر",
+    category: "سواتر"
   },
   {
     id: 5,
-    imageUrl: getProjectImage(14),
-    title: "زهور طبيعية",
-    category: "تنسيق"
+    imageUrl: getProjectImageByCategory('tiles', 1),
+    title: "ملحق قرميد إيطالي",
+    category: "قرميد"
   },
   {
     id: 6,
-    imageUrl: getProjectImage(15),
-    title: "كوشة العروس",
+    imageUrl: getProjectImageByCategory('pergola', 2),
+    title: "جلسة خارجية مميزة",
     category: "تصميم"
   },
 ];
+
 
 
 const Portfolio: React.FC = () => {

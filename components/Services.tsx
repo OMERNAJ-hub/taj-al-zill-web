@@ -14,7 +14,8 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Language, translations } from '../lib/translations';
-import { getProjectImage } from '../lib/projectImages';
+import { getProjectImageByCategory } from '../lib/projectImages';
+
 
 const services = [
   {
@@ -24,7 +25,7 @@ const services = [
     desc_ar: "تركيب مظلات بولي إيثيلين و PVC عالي الكثافة، مقاومة للحرارة والأشعة فوق البنفسجية في الرياض وجدة.",
     desc_en: "Premium Polyethylene and high-density PVC shades, heat and UV resistant across Riyadh and Jeddah.",
     icon: Car,
-    image: getProjectImage(0),
+    image: getProjectImageByCategory('cars', 0),
     specs: ["مقاومة للحرارة 95%", "ضمان 10 سنوات", "متعدد الألوان"]
   },
   {
@@ -34,7 +35,7 @@ const services = [
     desc_ar: "حلول منزلية تضمن الخصوصية التامة مع تصاميم قص ليزر عصرية وسواتر خشبية معالجة تضفي جمالاً على منزلك.",
     desc_en: "Privacy solutions with modern laser-cut designs and treated wood that adds elegance to your home.",
     icon: ShieldCheck,
-    image: getProjectImage(1),
+    image: getProjectImageByCategory('screens', 0),
     specs: ["حديد قص ليزر 4 ملم", "خشب بلاستيكي معالج", "دهانات نارية"]
   },
   {
@@ -44,7 +45,7 @@ const services = [
     desc_ar: "تصميم وتنفيذ برجولات خشبية وحديدية بلمسات ديكورية ساحرة تجعل جلستك الخارجية واحة من الاسترخاء.",
     desc_en: "Custom wood and steel pergolas with decorative touches that turn your outdoors into an oasis.",
     icon: Home,
-    image: getProjectImage(2),
+    image: getProjectImageByCategory('pergola', 0),
     specs: ["إنارة LED مدمجة", "أرضيات عشب صناعي", "تغطية لكسان شفافة"]
   },
   {
@@ -54,7 +55,7 @@ const services = [
     desc_ar: "تغطية أسطح وملاحق بأجود أنواع القرميد الوطني والايطالي، عزل مائي وحراري كامل بألوان متعددة.",
     desc_en: "Roofing with premium national and Italian tiles, full water and heat insulation in various colors.",
     icon: Layers,
-    image: getProjectImage(3),
+    image: getProjectImageByCategory('tiles', 0),
     specs: ["عزل مائي 5 طبقات", "خشب سويدي أصلي", "ألوان فخارة طبيعية"]
   },
   {
@@ -64,7 +65,7 @@ const services = [
     desc_ar: "تصميم بيوت الشعر والخيام التقليدية بروح عصرية وفخامة ملكية تناسب المجالس الكبيرة والمخيمات الفاخرة.",
     desc_en: "Traditional tents and Majlis designed with a modern soul and royal luxury for large gatherings.",
     icon: Tent,
-    image: getProjectImage(4),
+    image: getProjectImageByCategory('tents', 0),
     specs: ["أقمشة سدو فاخرة", "تكييف مخفي", "ديكورات جبسية تراثية"]
   },
   {
@@ -74,7 +75,7 @@ const services = [
     desc_ar: "بناء مستودعات وهناجر صناعية متينة وفق أعلى المعايير الهندسية لضمان المساحة والأمان لمشروعك.",
     desc_en: "Sturdy industrial hangars and warehouses built to highest engineering standards for your project safety.",
     icon: Warehouse,
-    image: getProjectImage(5),
+    image: getProjectImageByCategory('other', 0), // Use other or random for warehouses
     specs: ["جسور حديد سابك", "ألواح ساندوتش بانل", "أنظمة إطفاء حريق"]
   }
 ];

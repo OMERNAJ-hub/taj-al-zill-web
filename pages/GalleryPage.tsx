@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, ChevronLeft, Filter } from 'lucide-react';
 import { Language, translations } from '../lib/translations';
-import { projectImages, getProjectImage } from '../lib/projectImages';
+import { projectImages, getCategoryFromFilename, CategoryKey } from '../lib/projectImages';
 
 interface GalleryPageProps {
   lang: Language;
@@ -22,17 +22,32 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ lang }) => {
     { id: 'tents', name: lang === 'ar' ? 'بيوت شعر' : 'Tents' },
   ];
 
-  const allImages = projectImages.map((imgUrl, i) => {
-    // Distribute categories somewhat evenly based on index
-    const cat = categories[1 + (i % (categories.length - 1))];
+  const allImages = projectImages.map((filename, i) => {
+    const catId = getCategoryFromFilename(filename);
+
+    // Find category name
+    const catObj = categories.find(c => c.id === catId) || categories.find(c => c.id === 'cars'); // Default to cars if unknown
+
+    // Fallback for "WhatsApp..." images if we want to distribute them or hide them from specific filters
+    const finalCatId = catId === 'other' ? 'all' : catId;
+    const finalCatName = catObj?.name || (lang === 'ar' ? 'عام' : 'General');
+
     return {
       id: i,
-      url: "/" + imgUrl, // Ensure path is relative to root
-      title: lang === 'ar' ? `${cat.name} - مشروع ${i + 1}` : `${cat.name} - Project ${i + 1}`,
-      category: cat.id,
-      categoryName: cat.name
+      url: encodeURI("/" + filename),
+      title: lang === 'ar' ? `${finalCatName} ${i + 1}` : `${finalCatName} ${i + 1}`,
+      category: finalCatId, // This allows filtering
+      categoryName: finalCatName
     };
-  });
+  }).filter(img => img.category !== 'all'); // Optional: Hide 'other' images from specific tabs, or keep them. 
+  // Let's actually KEEP them for 'all' tab but map them to a random category if we want them to show up elsewhere.
+  // User instructions imply explicit naming: "if name has 'sawater' -> screens".
+  // So 'WhatsApp...' images might not show in specific tabs unless renamed. 
+  // For 'allImages', we will include everything.
+
+
+  // We do NOT filter out 'other' from the main list so they appear in "All", 
+  // but they won't appear in specific tabs unless we assign them one.
 
   const filteredImages = activeCategory === 'all'
     ? allImages
@@ -90,8 +105,8 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ lang }) => {
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
               className={`px-6 py-2 rounded-full border transition-all duration-300 font-medium ${activeCategory === cat.id
-                  ? 'bg-gold-500 border-gold-500 text-dark-900 shadow-[0_0_15px_rgba(212,175,55,0.3)]'
-                  : 'bg-dark-800 border-white/10 text-gray-400 hover:border-gold-500/50 hover:text-white'
+                ? 'bg-gold-500 border-gold-500 text-dark-900 shadow-[0_0_15px_rgba(212,175,55,0.3)]'
+                : 'bg-dark-800 border-white/10 text-gray-400 hover:border-gold-500/50 hover:text-white'
                 }`}
             >
               {cat.name}

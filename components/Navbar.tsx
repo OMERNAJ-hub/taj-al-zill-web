@@ -54,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage, lang, setLang,
     <nav className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 ${isScrolled ? 'bg-dark-900/98 backdrop-blur-md py-3 shadow-2xl border-b border-gold-500/20' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4">
-          
+
           {/* Right Section: Logo + Links */}
           <div className="flex items-center gap-6 lg:gap-10">
             {/* Logo */}
@@ -70,10 +70,10 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage, lang, setLang,
             {/* Navigation Links */}
             <div className="hidden md:flex items-center gap-4 lg:gap-6 border-r border-white/10 pr-6 lg:pr-10">
               {navLinks.map((link) => (
-                <a 
-                  key={link.name} 
-                  href={`#${link.href}`} 
-                  onClick={(e) => handleClick(e, link)} 
+                <a
+                  key={link.name}
+                  href={`#${link.href}`}
+                  onClick={(e) => handleClick(e, link)}
                   className={`text-sm lg:text-[15px] font-bold transition-all duration-300 hover:text-gold-500 whitespace-nowrap ${currentPage === link.href ? 'text-gold-500 border-b-2 border-gold-500' : 'text-gray-200'}`}
                 >
                   {link.name}
@@ -84,15 +84,15 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage, lang, setLang,
 
           {/* Left Section: Actions */}
           <div className="flex items-center gap-2 lg:gap-4 shrink-0">
-            <button 
+            <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="p-2 text-gray-400 hover:text-gold-500 hover:bg-white/5 rounded-full transition-all"
               title="الوضع الليلي/النهاري"
             >
               {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
-            
-            <button 
+
+            <button
               onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
               className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-black text-gray-200 hover:border-gold-500/50 hover:text-gold-500 transition-all"
             >
@@ -100,8 +100,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage, lang, setLang,
               {lang === 'ar' ? 'EN' : 'AR'}
             </button>
 
-            <a 
-              href="tel:+966503058109"
+            <a
+              href="tel:0531020403"
               className="flex items-center gap-2 bg-gold-500 hover:bg-white text-dark-950 px-4 lg:px-6 py-2 md:py-2.5 rounded-full font-black text-[12px] md:text-sm transition-all shadow-xl hover:scale-105 active:scale-95"
             >
               <Phone className="w-3.5 h-3.5 md:w-4 h-4" />
